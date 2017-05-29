@@ -48,7 +48,17 @@ box1.area()
 //: Using the Box class as an example, create a new class called Bicycle. Bicycles should have two `Int` properties, `numberOfGears` and `currentGear` (give them sensible default values).
 //:
 //: Bicycles should also have two functions. `gearUp()` and `gearDown()`, which increase and decrease the value in `currentGear`.
-
+//class Bicycle {
+//    var numberOfGears: Int = 5
+//    var currentGear: Int = 3
+//    
+//    func gearUp () -> Int {
+//        return currentGear + 1
+//    }
+//    func gearDown () -> Int {
+//        return currentGear - 1
+//    }
+//}
 
 
 
@@ -106,10 +116,22 @@ brightBulb.watts
 //: 4. The init method sets numberOfGears to the value in `gears`
 //:
 //: Hint: don't forget to supply a number of gears when you create your bicycles!
-
-
-
-
+class Bicycle {
+    let numberOfGears: Int
+    var currentGear: Int = 1
+    
+    func gearUp () {
+        currentGear = currentGear + 1
+    }
+    func gearDown () {
+        currentGear = currentGear - 1
+    }
+    
+    init(gears: Int) {
+        self.numberOfGears = gears
+    }
+    
+}
 
 
 
@@ -126,8 +148,20 @@ brightBulb.watts
 //: The syntax for subclassing can be found in the Swift Cheat Sheet included with this Playground.
 //:
 //: Hint: height * width * depth = the area of a cube
+class Cube: Box {
+    var depth: Double = 0
+    
+    override func area() -> Double {
+        return depth * height * width
+    }
+}
 
+let myCube = Cube()
+myCube.depth = 40
+myCube.width = 10
+myCube.height = 2
 
+myCube.area()
 
 
 //: DONE!!! - Head back to compass to do today's tutorial.
